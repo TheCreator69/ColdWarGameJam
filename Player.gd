@@ -24,7 +24,7 @@ func getEnemies():
 func getRegions():
 	var regions = []
 	for region in get_children():
-		if region.is_in_group("Region")
+		if region.is_in_group("Region"):
 			regions.append(region)
 	return regions
 		 
