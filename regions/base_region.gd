@@ -33,7 +33,7 @@ func set_highlight_colour(colour,new_base_colour=false):
 	$MeshInstance.set_surface_material(0,new_mesh_surface_mat)
 	
 
-func getMissiles( rangeOfFire: string ):
+func getMissiles( rangeOfFire ):
 	var missiles = []
 	for child in get_children():
 		if child.is_in_group(rangeOfFire):
@@ -43,7 +43,7 @@ func getMissiles( rangeOfFire: string ):
 func getMilitaryThread() -> float:
 	var threadLevel = 0
 	for enemy in get_parent().getEnemies():
-		for region in enemy.getRegions()			
+		for region in enemy.getRegions():
 			for missile in region.getMissiles("Low"):
 				if self.global_position.distance_to(region.global_position)	<= lowRange:
 					threadLevel += 1
@@ -51,6 +51,6 @@ func getMilitaryThread() -> float:
 				if self.global_position.distance_to(region.global_position)	<= midRange:
 					threadLevel += 1
 			for missile in region.getMissiles("High"):
-				if self.global_position.distance_to(region.global_position)	<= highRange:
+				if self.global_position.distance_to(region.global_position)	<= longRange:
 					threadLevel += 1					
 	return threadLevel
