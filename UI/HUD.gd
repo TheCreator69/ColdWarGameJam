@@ -25,6 +25,3 @@ func create_simple_widgets(player_regions: Spatial):
 		
 		$ResourceWidgets.add_child(new_widget)
 		widgets_for_regions[region] = new_widget
-
-func show_complex_widget(region: Spatial):
-	for 
