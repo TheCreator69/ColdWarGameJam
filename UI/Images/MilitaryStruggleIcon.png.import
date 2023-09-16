@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MilitaryStruggleIcon.png-6d9975a7a4f83bd32c86092788a70e89.stex"
+path="res://.import/MilitaryStruggleIcon.png-68e554da564a101e5957d5cb38c7a044.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/MilitaryStruggleIcon.png"
-dest_files=[ "res://.import/MilitaryStruggleIcon.png-6d9975a7a4f83bd32c86092788a70e89.stex" ]
+source_file="res://UI/Images/MilitaryStruggleIcon.png"
+dest_files=[ "res://.import/MilitaryStruggleIcon.png-68e554da564a101e5957d5cb38c7a044.stex" ]
 
 [params]
 

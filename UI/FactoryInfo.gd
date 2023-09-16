@@ -10,20 +10,9 @@ onready var WorkersAmountLabel = $Panel/VBoxContainer/HBoxContainer/WorkersAmoun
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func set_factory_label(label: String):
 	FactoryLabel.text = label
 
 func set_worker_amount(workers: int):
 	currentWorkers = workers
-	_set_workers_label()
-	
-func set_max_worker_amount(max_workers: int):
-	maxWorkers = max_workers
-	_set_workers_label()
-	
-func _set_workers_label():
-	WorkersAmountLabel.text = str(currentWorkers) + "/" + str(maxWorkers)
+	WorkersAmountLabel.text = str(workers)
