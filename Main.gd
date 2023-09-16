@@ -4,7 +4,7 @@ var currently_highlighted_region = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$HUD.create_simple_widgets($Player1/RegionSpawner/player_regions)
 
 func _input(event):
 	if event is InputEventMouseButton :
