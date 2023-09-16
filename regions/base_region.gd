@@ -10,12 +10,15 @@ export var lowRange = 50
 export var midRange = 200
 export var longRange = 1000
 
-var population
+var total_population
+var allocated_military_population
+var allocated_produce_population
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Region")
-	population = randi() % (maxPopulation - minPopulation) + minPopulation
+	total_population = randi() % (maxPopulation - minPopulation) + minPopulation
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +35,24 @@ func set_highlight_colour(colour,new_base_colour=false):
 	new_mesh_surface_mat.albedo_color = colour_to_set
 	$MeshInstance.set_surface_material(0,new_mesh_surface_mat)
 	
-
+func get_unallocated_population():
+	return total_population - allocated_military_population - allocated_produce_population
+	
+func assign_population_to_produce(num_pop):
+	if num_pop < 0:
+		return
+	var allocatable_pop = min(get_unallocated_population(), num_pop)
+	allocated_produce_population += allocatable_pop
+	return
+	
+func assign_population_to_military(num_pop):
+	if num_pop < 0:
+		return
+	var allocatable_pop = min(get_unallocated_population(), num_pop)
+	allocated_military_population += allocatable_pop
+	return
+	
+	
 func getMissiles( rangeOfFire ):
 	var missiles = []
 	for child in get_children():
