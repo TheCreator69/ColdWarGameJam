@@ -27,6 +27,7 @@ script = ExtResource( 1 )
 [node name="RegionSpawner" parent="Player2" instance=ExtResource( 2 )]
 region_origin = Vector2( 50, 0 )
 region_seed = 1233
+region_base_colour = Color( 0, 0.0627451, 1, 1 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0 )
