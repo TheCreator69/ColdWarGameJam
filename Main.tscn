@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://regions/region_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -34,3 +35,5 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100,
 
 [node name="Highlight" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]

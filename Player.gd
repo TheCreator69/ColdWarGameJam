@@ -39,5 +39,13 @@ func getRegions():
 		 
 
 func executeAIAction():
-	print("Executing AI Action
+	print("Executing AI Action")
 	
+		
+func click_event_region(region, position):
+	pass
+	#var base_missile = load("res://constructibles/missile.tscn")
+	#var missile_instance = base_missile.instance()
+	#missile_instance.set_type("Low")
+	#missile_instance.global_transform.origin = position
+	#add_child(missile_instance)
