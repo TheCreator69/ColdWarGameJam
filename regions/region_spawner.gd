@@ -1,16 +1,31 @@
 extends Spatial
 
-export var regions_per_player = 10
+export var regions_per_player = 20
 
 
 func _ready():
 	var base_region = load("res://regions/base_region.tscn")
+	
+	var rng = RandomNumberGenerator.new()
+	var existing_coords = []
 	for ind_region in range(regions_per_player):
-		var theta  = 2*PI*(float(ind_region)+rand_range(0,0.7))/float(regions_per_player)
-		var radius = rand_range(50.0,100.0)
-		var cart   = polar2cartesian(radius,theta)
+		var accepted_coord = false
+		var cart   = Vector2(0,0)
+		while not accepted_coord:
+			var x_coord = rng.randfn(0.0,1.0)
+			var y_coord = rng.randfn(0.0,1.0)
+			var no_overlaps = true
+			var trial_cart  = 20.0 * Vector2(x_coord,y_coord)
+			for existing_coord in existing_coords:
+				if trial_cart.distance_to(existing_coord) < 5.0:
+					no_overlaps = false
+			accepted_coord = no_overlaps
+			if accepted_coord:
+				cart = trial_cart
+		
 		var new_region = base_region.instance()
 		$player_regions.add_child(new_region)
 		new_region.global_transform.origin = Vector3(cart.x,0.0,cart.y)
+		existing_coords.append(cart)
 		
 
