@@ -25,3 +25,10 @@ func create_simple_widgets(player_regions: Spatial):
 		
 		$ResourceWidgets.add_child(new_widget)
 		widgets_for_regions[region] = new_widget
+
+func show_complex_widget(region: Spatial):
+	if widgets_for_regions.has(region):
+		widgets_for_regions[region].visible = false
+		
+		complex_widget = LocalResourceDetailed.instance()
+		$ResourceWidgets.add_child(complex_widget)
