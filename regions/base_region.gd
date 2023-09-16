@@ -40,17 +40,17 @@ func getMissiles( rangeOfFire ):
 			missiles.append(child);
 	return missiles
 
-func getMilitaryThread() -> float:
-	var threadLevel = 0
+func getMilitaryThreat() -> float:
+	var threatLevel = 0
 	for enemy in get_parent().getEnemies():
 		for region in enemy.getRegions():
 			for missile in region.getMissiles("Low"):
 				if self.global_position.distance_to(region.global_position)	<= lowRange:
-					threadLevel += 1
+					threatLevel += 1
 			for missile in region.getMissiles("Mid"):
 				if self.global_position.distance_to(region.global_position)	<= midRange:
-					threadLevel += 1
+					threatLevel += 1
 			for missile in region.getMissiles("High"):
 				if self.global_position.distance_to(region.global_position)	<= longRange:
-					threadLevel += 1					
-	return threadLevel
+					threatLevel += 1
+	return threatLevel
