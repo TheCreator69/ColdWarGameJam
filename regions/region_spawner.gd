@@ -4,6 +4,7 @@ export var regions_per_player = 20
 export var region_origin = Vector2(-50.0,0)
 export var region_seed = 0
 export var region_spread = 20.0
+export var region_base_colour = Color.red
 
 func _ready():
 	var base_region = load("res://regions/base_region.tscn")
@@ -30,5 +31,6 @@ func _ready():
 		$player_regions.add_child(new_region)
 		new_region.global_transform.origin = Vector3(cart.x,0.0,cart.y)
 		existing_coords.append(cart)
+		new_region.set_highlight_colour(region_base_colour,true)
 		
 

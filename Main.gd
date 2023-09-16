@@ -1,10 +1,6 @@
 extends Spatial
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var currently_highlighted_region = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,5 +29,16 @@ func _physics_process(delta):
 	if result:
 		$Highlight.visible = true
 		$Highlight.global_transform.origin = result.position
+		var result_region = result.collider.get_parent().get_parent()
+		if currently_highlighted_region == result_region:
+			pass
+		else:
+			if currently_highlighted_region:
+				currently_highlighted_region.set_highlight_colour(null)
+			result_region.set_highlight_colour(Color.green)
+			currently_highlighted_region = result_region
 	else:
 		$Highlight.visible = false
+		if currently_highlighted_region:
+			currently_highlighted_region.set_highlight_colour(null)
+		currently_highlighted_region = null
