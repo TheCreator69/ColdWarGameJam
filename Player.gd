@@ -1,9 +1,11 @@
 extends Node
 
+export var isAIControlled = true
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const actionRate = 1
+var actionTimer = 0
+var stdDeviation = 0.5
+var currentActionTimeSpan = actionRate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +13,15 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if isAIControlled:
+		actionTimer += delta
+	if actionTimer >= currentActionTimeSpan: 
+		executeAIAction()
+		currentActionTimeSpan = actionRate + rand_range(-stdDeviation * actionRate, stdDeviation * actionRate)
+		actionTimer = 0
+		
+		
 
 func getEnemies():
 	var enemies = []
@@ -28,6 +37,10 @@ func getRegions():
 			regions.append(region)
 	return regions
 		 
+
+func executeAIAction():
+	print("Executing AI Action")
+	
 		
 func click_event_region(region, position):
 	pass
