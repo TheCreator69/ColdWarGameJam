@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://UI/FactoryIcon.png" type="Texture" id=1]
+[ext_resource path="res://UI/Images/FactoryProduceIcon.png" type="Texture" id=1]
 [ext_resource path="res://UI/LocalResourcesSimple.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Images/FactoryMilitaryIcon.png" type="Texture" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -20,7 +21,7 @@ size_flags_vertical = 3
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 margin_right = 43.0
 margin_bottom = 32.0
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="MilitaryFactory" type="Label" parent="HBoxContainer/VBoxContainer"]
 margin_top = 36.0
@@ -40,6 +41,7 @@ size_flags_vertical = 3
 margin_right = 44.0
 margin_bottom = 32.0
 texture = ExtResource( 1 )
+flip_h = true
 
 [node name="FoodFactory" type="Label" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 36.0
