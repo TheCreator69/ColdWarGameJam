@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://regions/base_region.gd" type="Script" id=1]
+[ext_resource path="res://constructibles/missile.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
 height = 0.2
@@ -22,3 +23,5 @@ material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
 shape = SubResource( 2 )
+
+[node name="Missile" parent="." instance=ExtResource( 2 )]

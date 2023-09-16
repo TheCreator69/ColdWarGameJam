@@ -8,12 +8,14 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton :
-		var camera = $Camera#get_node("-Camera")
+		var camera = $Camera
 		var from = camera.project_ray_origin(event.position)
 		var to = from + camera.project_ray_normal(event.position) * 500
 		
 		var cursorPos = Plane(Vector3.UP, transform.origin.y).intersects_ray(from, to)
-		print(cursorPos)
+		var player_nodes = get_tree().get_nodes_in_group("Player")
+		for player in player_nodes:
+			player.click_event_region(currently_highlighted_region, cursorPos)
 
 func _physics_process(delta):
 	var RAY_LENGTH = 500
@@ -35,6 +37,7 @@ func _physics_process(delta):
 		else:
 			if currently_highlighted_region:
 				currently_highlighted_region.set_highlight_colour(null)
+			
 			result_region.set_highlight_colour(Color.green)
 			currently_highlighted_region = result_region
 	else:
