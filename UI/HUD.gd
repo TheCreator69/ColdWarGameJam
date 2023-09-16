@@ -31,4 +31,12 @@ func show_complex_widget(region: Spatial):
 		widgets_for_regions[region].visible = false
 		
 		complex_widget = LocalResourceDetailed.instance()
+		var screen_coord = get_node("../Camera").unproject_position(region.global_transform.origin)
+		complex_widget.set_position(screen_coord)
 		$ResourceWidgets.add_child(complex_widget)
+
+func hide_complex_widget(region: Spatial):
+	if widgets_for_regions.has(region):
+		widgets_for_regions[region].visible = true
+		complex_widget.queue_free()
+		complex_widget = null

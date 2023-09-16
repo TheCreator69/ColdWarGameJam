@@ -37,11 +37,14 @@ func _physics_process(delta):
 		else:
 			if currently_highlighted_region:
 				currently_highlighted_region.set_highlight_colour(null)
+				$HUD.hide_complex_widget(currently_highlighted_region)
 			
 			result_region.set_highlight_colour(Color.green)
 			currently_highlighted_region = result_region
+			$HUD.show_complex_widget(currently_highlighted_region)
 	else:
 		$Highlight.visible = false
 		if currently_highlighted_region:
 			currently_highlighted_region.set_highlight_colour(null)
+			$HUD.hide_complex_widget(currently_highlighted_region)
 		currently_highlighted_region = null
