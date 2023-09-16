@@ -40,6 +40,25 @@ func getRegions():
 
 func executeAIAction():
 	print("Executing AI Action")
+	for i in range(10):
+		if getRegions().size() == 0:
+			return
+		var randomRegionIndex = randi() % getRegions().size()
+		var availablePopulation = getRegions()[randomRegionIndex].get_unallocated_population()
+		if( availablePopulation > 0):
+			var action = randi() % 2
+			var numberToAssign = randi() % availablePopulation
+			if( action):
+				getRegions()[randomRegionIndex].assign_population_to_produce( numberToAssign )
+				print("Assigned " + numberToAssign + " to produce civil commodities")
+				break
+			else:
+				getRegions()[randomRegionIndex].assign_population_to_military( numberToAssign )
+				print("Assigned " + numberToAssign + " to produce military commodities")
+				break
+		else:
+			print('No population available in this region, checking next region...')
+			continue	
 	
 		
 func click_event_region(region, position):
