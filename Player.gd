@@ -30,8 +30,9 @@ func getRegions():
 		 
 		
 func click_event_region(region, position):
-	var base_missile = load("res://constructibles/missile.tscn")
-	var missile_instance = base_missile.instance()
-	missile_instance.set_type("Low")
-	missile_instance.global_transform.origin = position
-	add_child(missile_instance)
+	pass
+	#var base_missile = load("res://constructibles/missile.tscn")
+	#var missile_instance = base_missile.instance()
+	#missile_instance.set_type("Low")
+	#missile_instance.global_transform.origin = position
+	#add_child(missile_instance)

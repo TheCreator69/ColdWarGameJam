@@ -25,3 +25,4 @@ material/0 = SubResource( 3 )
 shape = SubResource( 2 )
 
 [node name="Missile" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44663, 0 )
