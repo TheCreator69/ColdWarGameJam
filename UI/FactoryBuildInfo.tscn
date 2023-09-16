@@ -76,4 +76,5 @@ margin_left = 61.0
 margin_right = 131.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
+size_flags_vertical = 1
 percent_visible = false
